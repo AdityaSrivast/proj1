@@ -1,10 +1,143 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Temperature Converter</h1>
-<p id='demo'></p>
-<script>
-document.getElementById("demo").innerHTML=5+6;
-</script>
+<head >
+	<title>Calculator</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<style >
+		table,th,td{
+			border: 1px solid black;
+			text-align: center;
+		}
+		th,td{
+			padding: 15px;
+		}
+	input[type="text"]
+	{
+		margin: 2px;
+		padding: 10px;
+		background-color: black;
+		margin-top: 20px;
+		width:100%;
+		margin-right: 10px;
+		color: #a8d500;
+		border-color: blue;
+	}
+	input[type="button"]
+	{
+		margin-top: 20px;
+		background-color:black;
+		padding:10px;
+		margin: 10px;
+		margin-right: 10px;
+		width: 30%;
+		font-weight: bold;
+		color:#a8d500;
+		border-color: blue;
+	}
+	div.zxc
+    {
+        background-color: black;
+        margin-left: 350px;
+        height: 200px;
+        width:500px;
+        border-radius: 5px;
+    }
+
+	
+</style>
+</head>
+<body style = "background-color: rgb(0,2,4); ">
+	<u><h1 style="text-align:left;color: #a8d500;">importing Calculator...</h1></u>
+	<br><br>
+	<!--<h2 style="text-align:center;">Base Conversion</h2><br>
+	<table width="30%" align="center"><title>Temperature</title>
+		<tr>
+			<th>Celcius</th>
+			<th>Fahrenheit</th>
+			<th>Kelvin</th>
+		</tr>
+		<tr>
+			<td>C</td>
+			<td>32+9/5*C</td>
+			<td>C+273</td>
+		</tr>
+	</table>
+	<br>-->
+	<h2 style="text-align:center;font-family:courier;color: hotpink">
+		Welcome to the Temperature Convertor
+	</h2>
+	<div class="zxc">
+
+	<form>
+		<input type="text" name="t" id="t" placeholder="Temperature">
+		<input type="text" name="ft" id="ft" placeholder="From Temperature">
+		<input type="text" name="tt" id="tt" placeholder="To Temperature">
+		<input type="button" value="Convert"  onclick='calc()'' style="text-align: left;">
+		<input type="text" name="ct" id="xyz" placeholder="Converted Temperature">
+	</form>
+
+	<script>
+		
+		function calc()
+		{	
+			function ctk(a)
+		{
+			return (a+273);
+		}
+
+		function ktc(a)
+		{
+			return(a-273);
+		}
+
+		function ctf(a)
+		{
+			return(9/5*a+32);
+		}
+
+		function ftc(a)
+		{
+			return((a-32)*5/9);
+		}
+
+		function ktf(a)
+		{
+			return((a-273)*9/5+32);
+		}
+
+		function ftk(a)
+		{
+			return(((a-32)*5/9)+273);
+		}
+			var x;
+			var t=document.getElementById('t').value;
+			var ft=document.getElementById('ft').value;
+			var tt=document.getElementById('tt').value;
+			t=parseInt(t);
+
+			if((ft=='C' || ft=='c') && (tt=='k' || tt=='K'))
+				{x=ctk(t);}
+			else if ((ft=='K' || ft=='k') && (tt=='c'||tt=='C' ))
+				{x=ktc(t);}
+			else if((ft=='C' || ft=='c') && (tt=='f' || tt=='F'))
+				{x=ctf(t);}
+			else if((ft=='f' || ft=='F') && (tt=='c' || tt=='C'))
+				{x=ftc(t);}
+			else if((ft=='f' || ft=='F') && (tt=='k' ||  tt=='K'))
+				{x=ftk(t);}
+			else if((ft=='k' || ft=='K') && (tt=='f' || tt=='F'))
+				{x=ktf(t);}
+			else
+				{ x=("Wrong Input!!! Try Again...");}
+			
+			document.getElementById('xyz').value=x;
+			document.getElementById('t').value='';
+			document.getElementById('ft').value='';
+			document.getElementById('tt').value='';
+	}
+		
+	</script>
+	</div>
 </body>
-</html>
+</html> 
