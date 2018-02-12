@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+		input[type="button"]
+		{
+			padding: 10px 50px;
+			color: black;
+			background-color: white;
+			font-weight: bold;
+			width: 20%
+		}
+		input[type="text"]
+		{
+			padding: 10px 50px;
+			margin-top: 10px;
+			color:black;
+			background-color: white;
+			width:50%;
+			border-color: grey;
+		}
+		#main
+		{
+			margin-top: 20px;
+			margin-left: 30%;
+		}
+
+	</style>
+</head>
+<body>
+	<div style="background-color: black;color: lightblue;padding-top: 20px;padding-bottom: 20px;">
+		<p style="text-align: center; font-size: 30px;">Calculator</p>
+	</div>
+	<div style="align-content: left;">
+		<form style="margin-left: 10px">
+			<input type="button" name="bconv" id="bconv" value="Base Conversion" onclick=""><br>
+			<input type="button" name="tconv" id="tconv" value="Temperature Conversion" onclick=""></a>
+		</form>
+		<form id="main">
+			<input type="text" name="value" id="val" placeholder="Enter the Value">
+			<input type="text" name="from" id="from" placeholder="From Base">
+			<input type="text" name="to" id="to" placeholder="To Base"><br>
+			<input type="button" name="lever" value="Convert" onclick="calc()"><br>
+			<input type="text" name="convrtdval" id="cv" placeholder="Converted Value">
+		</form>
+	</div>
+	<script type="text/javascript">
+		
+		function calc()
+		{
+			var v=document.getElementById('val').value;
+			var f=document.getElementById('from').value;
+			var t=document.getElementById('to').value;
+			var x;
+			
+			x=parseInt(v,f);
+
+			document.getElementById('cv').value=x;
+			document.getElementById('val').value='';
+			document.getElementById('from').value='';
+			document.getElementById('to').value='';
+		}
+				
+	</script>
+</body>
+</html>
