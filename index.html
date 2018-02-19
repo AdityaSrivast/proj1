@@ -82,15 +82,15 @@
 				while(i<6)
 				{
 					tmp=x2*t;
-					y2[i]=parseInt(tmp);
-					if(tmp==y2[i])
+					a=parseInt(tmp);
+					y2[i]=a.toString(t);
+					if(tmp==a)
 						break;
-					x2=tmp-y2[i++];
+					x2=tmp-a;
+					i++;
 				}
-				y2=y2.join('');
-				y2=parseInt(y2);
-				y2=y2.toString(t);
-				out=y1+'.'+y2;
+		
+				out=y1+'.'+y2.join('');
 			}
 			document.getElementById('cv').value=out;			
 			document.getElementById('val').value='';
