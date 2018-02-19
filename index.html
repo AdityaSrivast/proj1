@@ -54,11 +54,12 @@
 			var v=document.getElementById('val').value;
 			var f=document.getElementById('from').value;
 			var t=document.getElementById('to').value;
-			var x;
+			var x,y;
 			
 			x=parseInt(v,f);
+			y=x.toString(t);
 
-			document.getElementById('cv').value=x;
+			document.getElementById('cv').value=y;
 			document.getElementById('val').value='';
 			document.getElementById('from').value='';
 			document.getElementById('to').value='';
