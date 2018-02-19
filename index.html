@@ -51,15 +51,45 @@
 		
 		function calc()
 		{
-			var v=document.getElementById('val').value;
-			var f=document.getElementById('from').value;
-			var t=document.getElementById('to').value;
-			var x,y;
+			v=document.getElementById('val').value;
+			f=document.getElementById('from').value;
+			t=document.getElementById('to').value;
 			
-			x=parseInt(v,f);
-			y=x.toString(t);
+			
+			l=v.split('.');
+			if(l.length==1)
+			{
+				x=parseInt(v,f);
+				out=x.toString(t);
+			}
+			else if (l.length==2)
+			{
+				l1=l[0];
+				l2=l[1];
+				x1=parseInt(l1,f);
+				//x2=parseInt(l2,f);
+				x2=0;
+				
+				for(var i=1;i<=l2.length;i++)
+				{
+					x2+=parseInt(l2[i-1])*(f**(-i));
+				}
 
-			document.getElementById('cv').value=y;
+				y1=x1.toString(t);
+				//y2=x2.toString(t);
+				i=0;
+				var y2=[];
+				while(i<6)
+				{
+					tmp=x2*t;
+					y2[i]=parseInt(tmp);
+					if(tmp==y2[i])
+						break;
+					x2=tmp-y2[i++];
+				}
+				out=y1+'.'+y2.join('');
+			}
+			document.getElementById('cv').value=out;			
 			document.getElementById('val').value='';
 			document.getElementById('from').value='';
 			document.getElementById('to').value='';
